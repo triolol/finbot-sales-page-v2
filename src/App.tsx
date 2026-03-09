@@ -29,6 +29,8 @@ function App() {
   const [openFaq, setOpenFaq] = useState<number | null>(null);
   const [currentTestimonial, setCurrentTestimonial] = useState(0);
 
+  const CHECKOUT_URL = "https://pay.kiwify.com.br/HOmpECy";
+
   // Header scroll effect
   useEffect(() => {
     const handleScroll = () => {
@@ -161,7 +163,7 @@ function App() {
                 { label: 'Como Funciona', id: 'como-funciona' },
                 { label: 'Benefícios', id: 'beneficios' },
                 { label: 'Depoimentos', id: 'depoimentos' },
-                { label: 'Planos', id: 'planos' },
+                { label: 'Acesso', id: 'planos' },
               ].map((item) => (
                 <button
                   key={item.id}
@@ -178,7 +180,7 @@ function App() {
             {/* CTA Button Desktop */}
             <div className="hidden lg:block">
               <a
-                href="https://pay.kiwify.com.br/myRjIBO"
+                href={CHECKOUT_URL}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="btn-primary text-sm py-3 px-6"
@@ -226,7 +228,7 @@ function App() {
             { label: 'Como Funciona', id: 'como-funciona' },
             { label: 'Benefícios', id: 'beneficios' },
             { label: 'Depoimentos', id: 'depoimentos' },
-            { label: 'Planos', id: 'planos' },
+            { label: 'Acesso', id: 'planos' },
           ].map((item) => (
             <button
               key={item.id}
@@ -239,7 +241,7 @@ function App() {
         </nav>
         <div className="mt-8">
           <a
-            href="https://pay.kiwify.com.br/myRjIBO"
+            href={CHECKOUT_URL}
             target="_blank"
             rel="noopener noreferrer"
             className="btn-primary w-full block text-center"
@@ -264,7 +266,7 @@ function App() {
               </p>
               <div className="animate-fade-in-up" style={{ animationDelay: '0.4s' }}>
                 <a
-                  href="https://pay.kiwify.com.br/myRjIBO"
+                  href={CHECKOUT_URL}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="btn-primary text-lg py-4 px-8 inline-flex items-center gap-2 w-full sm:w-auto justify-center"
@@ -285,64 +287,69 @@ function App() {
                   <span>Suporte humano</span>
                 </div>
                 <div className="trust-badge text-gray-400">
-                  <Zap size={18} />
-                  <span>Acesso imediato</span>
+                  <Star size={18} className="text-[#FFD600]" />
+                  <span>4.9/5 estrelas</span>
                 </div>
               </div>
             </div>
 
-            {/* Phone Mockup */}
-            <div className="flex justify-center animate-float">
-              <div className="phone-mockup bg-[#075E54] w-[280px] h-[500px] relative" style={{ borderRadius: '24px', border: '8px solid #111' }}>
-                {/* WhatsApp Header */}
-                <div className="bg-[#128C7E] p-3 flex items-center gap-3 rounded-t-[16px]">
-                  <div className="w-8 h-8 bg-white rounded-full flex items-center justify-center overflow-hidden">
-                    <img src="/finbot-logo.png" alt="FinBot" className="w-6 h-6 object-contain" />
-                  </div>
-                  <div>
-                    <p className="text-white font-semibold text-sm">FinBot</p>
-                    <p className="text-green-200 text-xs">online</p>
-                  </div>
-                </div>
-                
-                {/* Chat Messages */}
-                <div className="p-3 space-y-2 overflow-hidden">
-                  <div className="bg-[#DCF8C6] rounded-lg p-2 ml-auto max-w-[85%] rounded-tr-sm">
-                    <p className="text-sm text-[#111111]">Entrou 2000</p>
-                    <p className="text-[10px] text-gray-500 text-right">10:54</p>
+            {/* Mockup */}
+            <div className="relative animate-fade-in-right">
+              <div className="absolute -inset-4 bg-[#25D366]/20 blur-3xl rounded-full" />
+              <div className="relative bg-[#111111] rounded-[2.5rem] p-3 shadow-2xl border-4 border-gray-800 max-w-[320px] mx-auto">
+                <div className="bg-[#075E54] rounded-[2rem] overflow-hidden">
+                  {/* WhatsApp Header */}
+                  <div className="bg-[#128C7E] p-4 flex items-center gap-3">
+                    <div className="w-10 h-10 bg-white rounded-full flex items-center justify-center overflow-hidden">
+                      <img src="/finbot-logo.png" alt="FinBot" className="w-8 h-8 object-contain" />
+                    </div>
+                    <div>
+                      <p className="text-white font-bold text-sm">FinBot</p>
+                      <p className="text-white/70 text-[10px]">online</p>
+                    </div>
                   </div>
                   
-                  <div className="bg-white rounded-lg p-2 max-w-[90%] rounded-tl-sm">
-                    <p className="text-xs text-[#111111]">
-                      <span className="text-green-600">✓</span> Transação registrada!<br/>
-                      <span className="text-lg">💰</span> Tipo: Entrada<br/>
-                      <span className="text-lg">📊</span> Saldo: R$2.000,00
-                    </p>
-                    <p className="text-[10px] text-gray-500 text-right">10:55</p>
-                  </div>
-
-                  <div className="bg-[#DCF8C6] rounded-lg p-2 ml-auto max-w-[85%] rounded-tr-sm">
-                    <p className="text-sm text-[#111111]">Uber 40</p>
-                    <p className="text-[10px] text-gray-500 text-right">10:56</p>
-                  </div>
-
-                  <div className="bg-white rounded-lg p-2 max-w-[90%] rounded-tl-sm">
-                    <p className="text-xs text-[#111111]">
-                      <span className="text-lg">🧾</span> Registrado: saída R$40,00<br/>
-                      Transporte (Uber)<br/>
-                      <span className="text-lg">📊</span> Saldo: R$1.960,00
-                    </p>
-                    <p className="text-[10px] text-gray-500 text-right">10:57</p>
+                  {/* WhatsApp Body */}
+                  <div className="p-4 space-y-4 h-[400px] bg-[#E5DDD5] overflow-y-auto custom-scrollbar">
+                    <div className="bg-white rounded-lg p-3 shadow-sm max-w-[85%]">
+                      <p className="text-xs text-[#111111]">Olá! Como posso ajudar hoje?</p>
+                    </div>
+                    <div className="bg-[#DCF8C6] rounded-lg p-3 shadow-sm max-w-[85%] ml-auto">
+                      <p className="text-xs text-[#111111]">Almoço 45</p>
+                    </div>
+                    <div className="bg-white rounded-lg p-3 shadow-sm max-w-[85%]">
+                      <p className="text-xs text-[#111111]">
+                        <span className="text-green-600 font-bold">✓</span> Registrado!<br/>
+                        <span className="text-lg">🧾</span> Almoço: R$45,00<br/>
+                        <span className="text-lg">📊</span> Saldo: R$1.955,00
+                      </p>
+                    </div>
+                    <div className="bg-[#DCF8C6] rounded-lg p-3 shadow-sm max-w-[85%] ml-auto">
+                      <p className="text-xs text-[#111111]">Relatório</p>
+                    </div>
+                    <div className="bg-white rounded-lg p-3 shadow-sm max-w-[85%]">
+                      <p className="text-xs text-[#111111]">
+                        <span className="text-lg">📊</span> **Resumo Semanal**<br/>
+                        Alimentação: R$320,00<br/>
+                        Transporte: R$150,00<br/>
+                        Lazer: R$200,00<br/>
+                        ---<br/>
+                        **Total: R$670,00**
+                      </p>
+                    </div>
                   </div>
                 </div>
-
-                {/* Input */}
-                <div className="absolute bottom-0 left-0 right-0 bg-[#F0F0F0] p-2 flex items-center gap-2 rounded-b-[16px]">
-                  <div className="flex-1 bg-white rounded-full px-3 py-2">
-                    <p className="text-gray-400 text-xs">Mensagem</p>
+              </div>
+              
+              {/* Floating Element */}
+              <div className="absolute -bottom-6 -right-6 bg-white p-4 rounded-2xl shadow-xl animate-bounce-slow hidden sm:block">
+                <div className="flex items-center gap-3">
+                  <div className="w-10 h-10 bg-green-100 rounded-full flex items-center justify-center text-[#25D366]">
+                    <TrendingUp size={24} />
                   </div>
-                  <div className="w-8 h-8 bg-[#128C7E] rounded-full flex items-center justify-center">
-                    <span className="text-white text-sm">📎</span>
+                  <div>
+                    <p className="text-[10px] text-gray-500 uppercase font-bold">Economia este mês</p>
+                    <p className="text-lg font-black text-[#111111]">R$ 450,00</p>
                   </div>
                 </div>
               </div>
@@ -351,162 +358,77 @@ function App() {
         </div>
       </section>
 
-      {/* SEÇÃO DE DOR (PROBLEMA) */}
-      <section className="py-16 lg:py-24 bg-white" style={{ paddingTop: '80px', paddingBottom: '80px' }}>
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h2 className="text-2xl sm:text-3xl lg:text-4xl font-black text-[#111111] text-center mb-12 reveal">
-            VOCÊ RECONHECE ALGUMA DESSAS SITUAÇÕES?
-          </h2>
-          
-          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6 mb-12">
-            {[
-              { icon: <Wallet size={40} />, text: "Fim do mês chega e você não sabe onde foi seu dinheiro" },
-              { icon: <PiggyBank size={40} />, text: "Prometeu começar a guardar, mas nunca sobra nada" },
-              { icon: <CreditCard size={40} />, text: "Tem medo de olhar a fatura do cartão" },
-              { icon: <FileText size={40} />, text: "Já tentou planilha, app, caderninho... e desistiu em 3 dias" },
-            ].map((item, index) => (
-              <div 
-                key={index} 
-                className="card-hover bg-[#F5F5F5] rounded-xl p-6 text-center reveal"
-                style={{ animationDelay: `${index * 0.1}s` }}
-              >
-                <div className="text-[#25D366] mb-4 flex justify-center">
-                  {item.icon}
-                </div>
-                <p className="text-[#111111] font-medium">{item.text}</p>
-              </div>
-            ))}
-          </div>
-
-          <div className="text-center reveal">
-            <a
-              href="https://pay.kiwify.com.br/myRjIBO"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="btn-primary w-full sm:w-auto"
-            >
-              CHEGA DE PERDER DINHEIRO
-            </a>
-          </div>
-        </div>
-      </section>
-
-      {/* OFERTA (PLANOS) */}
+      {/* OFERTA (PREÇO ÚNICO) */}
       <section id="planos" className="py-16 lg:py-24 green-gradient" style={{ paddingTop: '80px', paddingBottom: '80px' }}>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12 reveal">
             <h2 className="text-2xl sm:text-3xl lg:text-4xl font-black text-white mb-4">
-              ESCOLHA SEU PLANO
+              ACESSO VITALÍCIO AO FINBOT
             </h2>
             <p className="text-white/80 text-lg">
-              Acesso imediato. Comece em segundos.
+              Pagamento único. Sem mensalidades. Sem taxas escondidas.
             </p>
           </div>
 
-          <div className="grid md:grid-cols-3 gap-6 lg:gap-8 items-start">
-            {/* Plano Mensal */}
-            <div className="bg-white rounded-2xl p-6 lg:p-8 reveal card-hover">
-              <h3 className="text-xl font-bold text-[#111111] mb-2">PLANO MENSAL</h3>
-              <div className="mb-6">
-                <span className="text-4xl font-black text-[#111111]">R$27</span>
-                <span className="text-gray-500">/mês</span>
-              </div>
-              <ul className="space-y-3 mb-8">
-                {[
-                  "Acesso completo",
-                  "Suporte via WhatsApp",
-                  "Atualizações automáticas",
-                ].map((feature, i) => (
-                  <li key={i} className="flex items-center gap-3 text-gray-700">
-                    <Check size={18} className="text-[#25D366]" />
-                    {feature}
-                  </li>
-                ))}
-              </ul>
-              <a
-                href="https://pay.kiwify.com.br/myRjIBO"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="btn-primary w-full block text-center"
-              >
-                ESCOLHER MENSAL
-              </a>
-            </div>
-
-            {/* Plano Trimestral */}
-            <div className="bg-white rounded-2xl p-6 lg:p-8 reveal card-hover relative">
-              <div className="absolute -top-3 left-1/2 transform -translate-x-1/2">
-                <span className="bg-[#111111] text-white text-xs font-bold px-4 py-1 rounded-full">
-                  POPULAR
-                </span>
-              </div>
-              <h3 className="text-xl font-bold text-[#111111] mb-2">PLANO TRIMESTRAL</h3>
-              <div className="mb-2">
-                <span className="text-4xl font-black text-[#111111]">R$47</span>
-                <span className="text-gray-500">/3 meses</span>
-              </div>
-              <p className="text-[#25D366] font-semibold text-sm mb-6">Economize R$34</p>
-              <ul className="space-y-3 mb-8">
-                {[
-                  "Tudo do mensal",
-                  "Relatórios avançados",
-                  "Prioridade no suporte",
-                ].map((feature, i) => (
-                  <li key={i} className="flex items-center gap-3 text-gray-700">
-                    <Check size={18} className="text-[#25D366]" />
-                    {feature}
-                  </li>
-                ))}
-              </ul>
-              <a
-                href="https://pay.kiwify.com.br/utRqMh0"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="btn-secondary w-full block text-center"
-              >
-                ESCOLHER TRIMESTRAL
-              </a>
-            </div>
-
-            {/* Plano Anual - DESTAQUE */}
-            <div className="bg-white rounded-2xl p-6 lg:p-8 reveal relative md:scale-105 md:-mt-4 md:mb-4" 
-                 style={{ 
-                   boxShadow: '0 20px 40px rgba(37, 211, 102, 0.3)',
-                   border: '2px solid #FFD600'
-                 }}>
+          <div className="max-w-lg mx-auto">
+            <div className="bg-white rounded-2xl p-6 lg:p-10 reveal relative shadow-2xl border-4 border-[#FFD600]">
               <div className="absolute -top-4 left-1/2 transform -translate-x-1/2">
-                <span className="bg-[#FFD600] text-[#111111] text-xs font-black px-4 py-2 rounded-full badge-pulse">
-                  MELHOR CUSTO-BENEFÍCIO
+                <span className="bg-[#FFD600] text-[#111111] text-xs font-black px-6 py-2 rounded-full badge-pulse">
+                  OFERTA POR TEMPO LIMITADO
                 </span>
               </div>
-              <h3 className="text-xl font-bold text-[#111111] mb-2">PLANO ANUAL</h3>
-              <div className="mb-2">
-                <span className="text-4xl font-black text-[#111111]">R$97</span>
-                <span className="text-gray-500">/ano</span>
+              
+              <div className="text-center mb-8">
+                <h3 className="text-2xl font-bold text-[#111111] mb-4">ACESSO COMPLETO</h3>
+                <div className="flex items-center justify-center gap-3 mb-2">
+                  <span className="text-gray-400 line-through text-xl">R$ 197,00</span>
+                  <span className="bg-green-100 text-green-600 text-xs font-bold px-2 py-1 rounded">65% OFF</span>
+                </div>
+                <div className="mb-2">
+                  <span className="text-6xl font-black text-[#111111]">R$ 67</span>
+                  <span className="text-2xl font-bold text-[#111111]">,00</span>
+                </div>
+                <p className="text-gray-500 font-medium">Pagamento Único</p>
               </div>
-              <p className="text-[#25D366] font-semibold text-sm mb-6">Economize R$227 (72% OFF)</p>
-              <ul className="space-y-3 mb-8">
+
+              <ul className="space-y-4 mb-10">
                 {[
-                  "Tudo dos outros planos",
-                  "Consultoria mensal",
-                  "Grupo exclusivo",
-                  "Acesso vitalício aos relatórios",
+                  "Acesso vitalício ao FinBot",
+                  "Relatórios automáticos ilimitados",
+                  "Categorização inteligente de gastos",
+                  "Suporte prioritário via WhatsApp",
+                  "Atualizações gratuitas para sempre",
+                  "Segurança e criptografia de dados"
                 ].map((feature, i) => (
                   <li key={i} className="flex items-center gap-3 text-gray-700">
-                    <Check size={18} className="text-[#25D366]" />
-                    {feature}
+                    <div className="bg-green-100 rounded-full p-1">
+                      <Check size={18} className="text-[#25D366]" />
+                    </div>
+                    <span className="font-medium">{feature}</span>
                   </li>
                 ))}
               </ul>
+
               <a
-                href="https://pay.kiwify.com.br/RZ6mqe4"
+                href={CHECKOUT_URL}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="btn-primary w-full block text-center"
-                style={{ backgroundColor: '#FFE066' }}
+                className="btn-primary w-full block text-center text-xl py-5 shadow-xl hover:scale-105 transition-transform"
+                style={{ backgroundColor: '#25D366' }}
               >
-                ESCOLHER ANUAL
+                QUERO MEU ACESSO AGORA
               </a>
+              
+              <div className="mt-6 flex items-center justify-center gap-4 text-gray-400 text-xs">
+                <div className="flex items-center gap-1">
+                  <Shield size={14} />
+                  <span>Compra 100% Segura</span>
+                </div>
+                <div className="flex items-center gap-1">
+                  <CreditCard size={14} />
+                  <span>Acesso Imediato</span>
+                </div>
+              </div>
             </div>
           </div>
         </div>
@@ -588,7 +510,7 @@ function App() {
                 step: "1", 
                 icon: <Smartphone size={48} />, 
                 title: "Acesse o link e comece agora",
-                desc: "Escolha seu plano e faça o pagamento seguro"
+                desc: "Faça o pagamento único e seguro de R$ 67,00"
               },
               { 
                 step: "2", 
@@ -625,7 +547,7 @@ function App() {
 
           <div className="text-center mt-12 reveal">
             <a
-              href="https://pay.kiwify.com.br/myRjIBO"
+              href={CHECKOUT_URL}
               target="_blank"
               rel="noopener noreferrer"
               className="btn-primary w-full sm:w-auto"
@@ -667,7 +589,7 @@ function App() {
 
           <div className="text-center reveal">
             <a
-              href="https://pay.kiwify.com.br/myRjIBO"
+              href={CHECKOUT_URL}
               target="_blank"
               rel="noopener noreferrer"
               className="btn-primary w-full sm:w-auto"
@@ -722,7 +644,7 @@ function App() {
 
           <div className="text-center reveal">
             <a
-              href="https://pay.kiwify.com.br/myRjIBO"
+              href={CHECKOUT_URL}
               target="_blank"
               rel="noopener noreferrer"
               className="btn-primary w-full sm:w-auto"
@@ -741,48 +663,44 @@ function App() {
           </h2>
 
           {/* Desktop Grid */}
-          <div className="hidden md:grid md:grid-cols-3 gap-6 mb-12">
-            {testimonials.map((testimonial, index) => (
-              <div 
-                key={index} 
-                className="testimonial-card reveal"
-                style={{ animationDelay: `${index * 0.15}s` }}
-              >
-                <div className="stars flex gap-1 mb-4">
-                  {[...Array(testimonial.rating)].map((_, i) => (
-                    <Star key={i} size={20} fill="#FFD600" />
+          <div className="hidden md:grid grid-cols-3 gap-8 mb-12">
+            {testimonials.map((t, i) => (
+              <div key={i} className="bg-[#F5F5F5] p-8 rounded-2xl reveal" style={{ animationDelay: `${i * 0.2}s` }}>
+                <div className="flex gap-1 mb-4">
+                  {[...Array(t.rating)].map((_, i) => (
+                    <Star key={i} size={16} className="fill-[#FFD600] text-[#FFD600]" />
                   ))}
                 </div>
-                <p className="text-gray-700 mb-6 italic">"{testimonial.text}"</p>
+                <p className="text-gray-700 italic mb-6">"{t.text}"</p>
                 <div>
-                  <p className="font-bold text-[#111111]">— {testimonial.author}</p>
-                  <p className="text-sm text-gray-500">{testimonial.location}</p>
+                  <p className="font-bold text-[#111111]">{t.author}</p>
+                  <p className="text-sm text-gray-500">{t.location}</p>
                 </div>
               </div>
             ))}
           </div>
 
           {/* Mobile Carousel */}
-          <div className="md:hidden mb-12">
-            <div className="testimonial-card reveal">
-              <div className="stars flex gap-1 mb-4">
+          <div className="md:hidden relative mb-12">
+            <div className="bg-[#F5F5F5] p-8 rounded-2xl min-h-[250px] flex flex-col justify-center">
+              <div className="flex gap-1 mb-4">
                 {[...Array(testimonials[currentTestimonial].rating)].map((_, i) => (
-                  <Star key={i} size={20} fill="#FFD600" />
+                  <Star key={i} size={16} className="fill-[#FFD600] text-[#FFD600]" />
                 ))}
               </div>
-              <p className="text-gray-700 mb-6 italic">"{testimonials[currentTestimonial].text}"</p>
+              <p className="text-gray-700 italic mb-6">"{testimonials[currentTestimonial].text}"</p>
               <div>
-                <p className="font-bold text-[#111111]">— {testimonials[currentTestimonial].author}</p>
+                <p className="font-bold text-[#111111]">{testimonials[currentTestimonial].author}</p>
                 <p className="text-sm text-gray-500">{testimonials[currentTestimonial].location}</p>
               </div>
             </div>
             <div className="flex justify-center gap-2 mt-6">
-              {testimonials.map((_, index) => (
-                <button
-                  key={index}
-                  onClick={() => setCurrentTestimonial(index)}
-                  className={`w-3 h-3 rounded-full transition-colors ${
-                    currentTestimonial === index ? 'bg-[#25D366]' : 'bg-gray-300'
+              {testimonials.map((_, i) => (
+                <button 
+                  key={i}
+                  onClick={() => setCurrentTestimonial(i)}
+                  className={`w-2 h-2 rounded-full transition-all ${
+                    currentTestimonial === i ? 'w-6 bg-[#25D366]' : 'bg-gray-300'
                   }`}
                 />
               ))}
@@ -791,18 +709,18 @@ function App() {
 
           <div className="text-center reveal">
             <a
-              href="https://pay.kiwify.com.br/myRjIBO"
+              href={CHECKOUT_URL}
               target="_blank"
               rel="noopener noreferrer"
               className="btn-primary w-full sm:w-auto"
             >
-              QUERO RESULTADOS IGUAIS
+              QUERO TER ESSES RESULTADOS
             </a>
           </div>
         </div>
       </section>
 
-      {/* FAQ (ACORDION) */}
+      {/* FAQ */}
       <section className="py-16 lg:py-24 bg-[#F5F5F5]" style={{ paddingTop: '80px', paddingBottom: '80px' }}>
         <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
           <h2 className="text-2xl sm:text-3xl lg:text-4xl font-black text-[#111111] text-center mb-12 reveal">
@@ -810,30 +728,21 @@ function App() {
           </h2>
 
           <div className="space-y-4">
-            {faqs.map((faq, index) => (
-              <div key={index} className="faq-item bg-white rounded-xl overflow-hidden reveal">
-                <button
-                  onClick={() => toggleFaq(index)}
-                  className="faq-question w-full px-6 text-left flex items-center justify-between py-4"
+            {faqs.map((faq, i) => (
+              <div key={i} className="bg-white rounded-xl overflow-hidden shadow-sm reveal" style={{ animationDelay: `${i * 0.1}s` }}>
+                <button 
+                  onClick={() => toggleFaq(i)}
+                  className="w-full p-6 text-left flex justify-between items-center gap-4"
                 >
-                  <span className="flex items-center gap-3 pr-4">
-                    <HelpCircle size={20} className="text-[#25D366] flex-shrink-0" />
-                    <span className="font-semibold text-[#111111]">{faq.question}</span>
-                  </span>
-                  <div className="flex-shrink-0">
-                    {openFaq === index ? (
-                      <Minus size={20} className="text-[#25D366]" />
-                    ) : (
-                      <Plus size={20} className="text-gray-400" />
-                    )}
-                  </div>
+                  <span className="font-bold text-[#111111]">{faq.question}</span>
+                  {openFaq === i ? <Minus size={20} /> : <Plus size={20} />}
                 </button>
-                <div 
-                  className={`overflow-hidden transition-all duration-300 ${
-                    openFaq === index ? 'max-h-96 pb-4' : 'max-h-0'
-                  }`}
-                >
-                  <p className="text-gray-600 pl-11 pr-6">{faq.answer}</p>
+                <div className={`transition-all duration-300 ease-in-out ${
+                  openFaq === i ? 'max-h-[500px] opacity-100' : 'max-h-0 opacity-0'
+                }`}>
+                  <div className="p-6 pt-0 text-gray-600 border-t border-gray-50">
+                    {faq.answer}
+                  </div>
                 </div>
               </div>
             ))}
@@ -841,106 +750,91 @@ function App() {
         </div>
       </section>
 
-      {/* FOOTER CTA (FINAL) */}
-      <section className="py-16 lg:py-24 bg-[#111111]" style={{ paddingTop: '80px', paddingBottom: '80px' }}>
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h2 className="text-2xl sm:text-3xl lg:text-5xl font-black text-white mb-6 reveal">
-            A ÚLTIMA DECISÃO QUE VOCÊ PRECISA TOMAR SOBRE DINHEIRO
+      {/* FINAL CTA */}
+      <section className="py-16 lg:py-24 bg-[#111111] relative overflow-hidden">
+        <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-transparent via-[#25D366] to-transparent" />
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
+          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-black text-white mb-6 reveal">
+            PRONTO PARA MUDAR SUA VIDA FINANCEIRA?
           </h2>
-          <p className="text-lg sm:text-xl text-gray-400 mb-8 reveal">
-            Daqui a 30 dias, você pode estar no controle ou na mesma situação de sempre.
+          <p className="text-xl text-gray-400 mb-10 max-w-2xl mx-auto reveal">
+            Junte-se a centenas de pessoas que já organizaram suas finanças com o FinBot. 
+            Acesso vitalício por apenas R$ 67,00.
           </p>
-
-          {/* Countdown */}
-          <div className="flex justify-center gap-4 mb-8 reveal">
-            <div className="bg-[#25D366] rounded-lg p-4 min-w-[80px]">
-              <p className="text-3xl sm:text-4xl font-black text-white counter">
-                {String(timeLeft.minutes).padStart(2, '0')}
-              </p>
-              <p className="text-white/80 text-sm">min</p>
-            </div>
-            <div className="bg-[#25D366] rounded-lg p-4 min-w-[80px]">
-              <p className="text-3xl sm:text-4xl font-black text-white counter">
-                {String(timeLeft.seconds).padStart(2, '0')}
-              </p>
-              <p className="text-white/80 text-sm">seg</p>
-            </div>
-          </div>
-          <p className="text-gray-500 mb-8 reveal">Oferta válida por mais {timeLeft.minutes}:{String(timeLeft.seconds).padStart(2, '0')}</p>
-
           <div className="reveal">
             <a
-              href="https://pay.kiwify.com.br/myRjIBO"
+              href={CHECKOUT_URL}
               target="_blank"
               rel="noopener noreferrer"
-              className="btn-primary text-xl py-5 px-10 inline-flex items-center gap-3 w-full sm:w-auto justify-center"
+              className="btn-primary text-xl py-5 px-12 inline-flex items-center gap-3"
             >
-              QUERO ORGANIZAR MINHAS FINANÇAS AGORA
+              QUERO MEU ACESSO AGORA
               <ArrowRight size={24} />
             </a>
           </div>
-
-          <p className="text-gray-600 text-sm mt-6 reveal">
-            Preços podem aumentar a qualquer momento
+          <p className="mt-6 text-gray-500 text-sm reveal">
+            Garantia de satisfação ou seu dinheiro de volta em até 7 dias.
           </p>
         </div>
       </section>
 
       {/* FOOTER */}
-      <footer className="py-12 bg-[#0a0a0a]">
+      <footer className="py-12 bg-[#0a0a0a] border-t border-white/5">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex flex-col items-center">
-            {/* Logo */}
-            <div className="flex items-center gap-2 mb-6">
-              <img 
-                src="/finbot-logo.png" 
-                alt="FinBot" 
-                className="w-12 h-12 object-contain"
-              />
-              <span className="font-bold text-2xl text-white">FinBot</span>
+          <div className="grid md:grid-cols-4 gap-12 mb-12">
+            <div className="col-span-2">
+              <div className="flex items-center gap-2 mb-6">
+                <img src="/finbot-logo.png" alt="FinBot" className="w-8 h-8 object-contain" />
+                <span className="font-bold text-xl text-white">FinBot</span>
+              </div>
+              <p className="text-gray-500 max-w-sm">
+                O assistente financeiro mais simples do mundo, direto no seu WhatsApp. 
+                Transformando a forma como você lida com seu dinheiro.
+              </p>
             </div>
-
-            {/* Links */}
-            <div className="flex flex-wrap justify-center gap-4 sm:gap-6 mb-6">
-              <a href="#" className="text-gray-400 hover:text-white transition-colors text-sm">
-                Termos de uso
-              </a>
-              <a href="#" className="text-gray-400 hover:text-white transition-colors text-sm">
-                Política de privacidade
-              </a>
-              <a 
-                href="http://wa.me/5548998025201" 
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-gray-400 hover:text-white transition-colors text-sm flex items-center gap-1"
-              >
-                <MessageCircle size={14} className="text-[#25D366]" />
-                Falar com suporte
-              </a>
+            <div>
+              <h4 className="text-white font-bold mb-6">Links Rápidos</h4>
+              <ul className="space-y-4">
+                <li><button onClick={() => scrollToSection('como-funciona')} className="text-gray-500 hover:text-white transition-colors">Como Funciona</button></li>
+                <li><button onClick={() => scrollToSection('beneficios')} className="text-gray-500 hover:text-white transition-colors">Benefícios</button></li>
+                <li><button onClick={() => scrollToSection('planos')} className="text-gray-500 hover:text-white transition-colors">Acesso</button></li>
+              </ul>
             </div>
-
-            {/* Social */}
-            <div className="flex gap-4 mb-6">
-              <a 
-                href="http://wa.me/5548998025201"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="w-10 h-10 bg-[#25D366] rounded-full flex items-center justify-center text-white hover:bg-[#128C7E] transition-colors"
-              >
-                <MessageCircle size={20} />
-              </a>
-              <a 
-                href="#" 
-                className="w-10 h-10 bg-[#25D366] rounded-full flex items-center justify-center text-white hover:bg-[#128C7E] transition-colors"
-              >
-                <Smartphone size={20} />
-              </a>
+            <div>
+              <h4 className="text-white font-bold mb-6">Suporte</h4>
+              <ul className="space-y-4">
+                <li>
+                  <a 
+                    href="http://wa.me/5548998025201" 
+                    target="_blank" 
+                    rel="noopener noreferrer"
+                    className="text-gray-500 hover:text-white transition-colors flex items-center gap-2"
+                  >
+                    <MessageCircle size={16} />
+                    WhatsApp
+                  </a>
+                </li>
+                <li>
+                  <a 
+                    href="http://wa.me/5548998025201" 
+                    target="_blank" 
+                    rel="noopener noreferrer"
+                    className="text-gray-500 hover:text-white transition-colors"
+                  >
+                    Contato
+                  </a>
+                </li>
+              </ul>
             </div>
-
-            {/* Copyright */}
-            <p className="text-gray-600 text-sm text-center">
+          </div>
+          <div className="pt-8 border-t border-white/5 flex flex-col md:flex-row justify-between items-center gap-6">
+            <p className="text-gray-600 text-sm">
               © 2024 FinBot. Todos os direitos reservados.
             </p>
+            <div className="flex gap-8">
+              <a href="#" className="text-gray-600 hover:text-white transition-colors text-xs">Termos de Uso</a>
+              <a href="#" className="text-gray-600 hover:text-white transition-colors text-xs">Privacidade</a>
+            </div>
           </div>
         </div>
       </footer>
